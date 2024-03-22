@@ -48,7 +48,7 @@ const Forecast = function (props) {
 
             <Col>
               <p>
-                <strong>Wind Speed</strong> {props.forecastData.list[1].wind.speed} meter/sec
+                <strong>Wind Speed</strong> {props.forecastData.list[0].wind.speed} meter/sec
               </p>
             </Col>
           </Row>

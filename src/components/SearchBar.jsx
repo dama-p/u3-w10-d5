@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import TodaysWeather from "./TodaysWeather";
+import Forecast from "./Forecast";
+
 
 const apiKey = "dc3b0f9f10d947646d1f10be4bfd42c8";
 const limit = 1;
@@ -8,7 +11,7 @@ const daysOfForecast = 7;
 /* const toGetCoordinatesUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`; */
 /* const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`*/
 
-const TodaysWeather = function () {
+const SearchBar = function () {
   const [cityName, setCityName] = useState("");
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastWeather, setForecastWeather] = useState(null);
@@ -99,8 +102,17 @@ const TodaysWeather = function () {
             </Row>
           </Col>
         </Row>
+
       </Container>
+      <Row>
+        {currentWeather && ( <TodaysWeather todaysData={currentWeather} />)}
+           
+        </Row>
+
+        <Row>
+           {forecastWeather &&(<Forecast forecastData={forecastWeather} />)} 
+        </Row>
     </>
   );
 };
-export default TodaysWeather;
+export default SearchBar;

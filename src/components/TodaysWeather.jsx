@@ -1,6 +1,3 @@
-/* const icon = wInfo.weather[0].icon; // For instance "09d"
-<Image source={{ uri: ``http://openweathermap.org/img/w/${icon}.png`` }} /> */
-
 import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 
 const TodaysWeather = function (props) {
@@ -19,41 +16,40 @@ const TodaysWeather = function (props) {
 
   return (
     <>
-      <p className="sectionTitle">Today's weather in {props.todaysData.name}</p>
 
-      <Row className="d-flex align-items-center justify-content-center">
+
+      <p className="fs-5 mt-4">Today's weather in</p>
+      <p className="sectionTitle">{props.todaysData.name}</p>
+
+      <Row className="d-flex flex-column">
         <Col>
-          <Row className="d-flex flex-column">
-            <Col>
-              <img src={`http://openweathermap.org/img/w/${icon}.png`} style={{ width: "100px" }} />
-            </Col>
-            <Col>
-              <p className="fs-2">{props.todaysData.weather[0].main}</p>
-            </Col>
+          <img src={`http://openweathermap.org/img/w/${icon}.png`} style={{ width: "100px" }} />
+        </Col>
+        <Col>
+          <p className="fs-2">{props.todaysData.weather[0].main}</p>
+        </Col>
 
-            <Col>
-              <p className="degrees">{props.todaysData.main.temp}°C</p>
-              <p>
-                <strong>Min.</strong> {props.todaysData.main.temp_min}°C - <strong>Max.</strong>{" "}
-                {props.todaysData.main.temp_max}°C
-              </p>
-            </Col>
-            <Col>
-              <p>You can expect {props.todaysData.weather[0].description}</p>
-            </Col>
-            <Col>
-              {" "}
-              <p>
-                <strong>Sunrise</strong> at {sunriseTime} - <strong>Sunset</strong> at {sunsetTime}
-              </p>
-            </Col>
+        <Col>
+          <p className="degrees">{props.todaysData.main.temp}°C</p>
+          <p>
+            <strong>Min.</strong> {props.todaysData.main.temp_min}°C - <strong>Max.</strong>{" "}
+            {props.todaysData.main.temp_max}°C
+          </p>
+        </Col>
+        <Col>
+          <p>You can expect {props.todaysData.weather[0].description}</p>
+        </Col>
+        <Col>
+          {" "}
+          <p>
+            <strong>Sunrise:</strong> {sunriseTime} - <strong>Sunset:</strong> {sunsetTime}
+          </p>
+        </Col>
 
-            <Col>
-              <p>
-                <strong>Wind Speed</strong> {props.todaysData.wind.speed}
-              </p>
-            </Col>
-          </Row>
+        <Col>
+          <p>
+            <strong>Wind Speed</strong> {props.todaysData.wind.speed} meter/sec
+          </p>
         </Col>
       </Row>
     </>

@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+/* START STYLING  */
+
+#root {
+  background-image: url("../public/background.jpg");
+  min-height: 100vh;
+  background-size: 100vw 100vh;
+  overflow-x: hidden;
+}
+
+#contentContainer {
+  margin-top: 15vh;
+}
+
+#currentContainer {
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#forecastContainer {
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

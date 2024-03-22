@@ -3,7 +3,6 @@ import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import TodaysWeather from "./TodaysWeather";
 import Forecast from "./Forecast";
 
-
 const apiKey = "dc3b0f9f10d947646d1f10be4bfd42c8";
 const limit = 1;
 const daysOfForecast = 7;
@@ -85,33 +84,40 @@ const SearchBar = function () {
 
   return (
     <>
-      <Container className="d-flex justify-content-center align-items-center">
+      <Container id="contentContainer" className="container-fluid d-flex flex-column justify-content-center mx-auto">
         <Row>
-          <Col className="d-flex justify-content-center flex-column align-items-center rounded-5 py-4 px-4">
-            <Row className="mb-4">
-              <Form onSubmit={handleSubmit}>
-                <InputGroup className="p-0 ">
-                  <Form.Control
-                    placeholder="Type your city here"
-                    value={cityName}
-                    onChange={handleChange}
-                    className="rounded-5"
-                  />
-                </InputGroup>
-              </Form>
-            </Row>
+          <Col>
+            <h1 className="text-white">what's the weather like? </h1>
           </Col>
         </Row>
 
-      </Container>
-      <Row>
-        {currentWeather && ( <TodaysWeather todaysData={currentWeather} />)}
-           
+        <Row id="searchBarContainer">
+          <Col className="col-8 rounded-5 py-4 px-4 mx-auto">
+            <Form onSubmit={handleSubmit}>
+              <InputGroup className="p-0 ">
+                <Form.Control
+                  placeholder="Type your city here"
+                  value={cityName}
+                  onChange={handleChange}
+                  className="rounded-5"
+                />
+              </InputGroup>
+            </Form>
+          </Col>
         </Row>
 
         <Row>
-           {forecastWeather &&(<Forecast forecastData={forecastWeather} />)} 
+          <Col id="currentContainer" className="col-10 mx-auto">
+            {currentWeather && <TodaysWeather todaysData={currentWeather} />}
+          </Col>
         </Row>
+
+        <Row>
+          <Col id="forecastContainer" className="col-10 mx-auto">
+            {forecastWeather && <Forecast forecastData={forecastWeather} />}
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
